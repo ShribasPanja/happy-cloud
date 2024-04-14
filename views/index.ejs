@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>happy cloud</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-evenly align-items-center">
+        <div class="search col-sm container">
+            <div class="row align-items-center">
+                <div class="col-4"><img class="logo" src="logo.png" alt="logo"></div>
+                <div class="col"><h2>happy cloud</h2></div>
+            </div>
+            <div class="custom_input row">
+            <form action="/" id="myForm" method="POST">
+                <svg xmlns="http://www.w3.org/2000/svg" class="svg_icon bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path></svg>
+                <input class="input" name="city" type="text" placeholder="Enter City">
+                <button type="submit" class="form-submit">Go</button>
+            </form>
+            </div>
+            
+        </div>
+        <% if(locals.error){ %>
+        <%= error %>
+        <% }else{ %>
+        <div class="container text-center panel col-sm">
+            <div id="upper" class="row align-items-center">
+                <div class="col"><h1 class="city"><%= city %></h1></div>
+                <div class="col"><h3 class="date"><%= date %></h3></div>
+            </div>
+            <div id="middle" class="row align-items-center">
+                <div class="col"><h1 class="temp"><%= temperature %><sup>°C</sup></h1></div>
+                <div class="col"><img class="weatherlogo" src="<%= icon %>" alt="weather"><br><p class="text"><%= now %></p></div>
+            </div>
+            <div id="lower" class="row align-items-center">
+                <div class="col"><img class="humid" src="humidity.png" alt="humidity"><br><p class="humidity"><%= humidity %>%</p></div>
+                <div class="col"><img class="wind" src="wind.png" alt="wind"><br><p class="windSpeed"><%= speed %> km/h</p></div>
+            </div>
+        </div>
+        <div class="forecast col-sm container">
+            <div class="row times">
+                <div class="col"><h5><%= temp1 %>°</h5><br><p>12am</p></div>
+                <div class="col"><h5><%= temp2 %>°</h5><br><p>4am</p></div>
+                <div class="col"><h5><%= temp3 %>°</h5><br><p>8am</p></div>
+                <div class="col"><h5><%= temp4 %>°</h5><br><p>12pm</p></div>
+                <div class="col"><h5><%= temp5 %>°</h5><br><p>4pm</p></div>
+                <div class="col"><h5><%= temp6 %>°</h5><br><p>8pm</p></div>
+            </div>
+            <div class="row days">
+                <div class="col dayForcast"><img src="<%= iconDay1 %>" alt="forecast"><br><p class="forecastWord"><%= day1 %></p></div>
+                <div class="col dayForcast"><img src="<%= iconDay2 %>" alt="forecast"><br><p class="forecastWord"><%= day2 %></p></div>
+                <div class="col dayForcast"><img src="<%= iconDay3 %>" alt="forecast"><br><p class="forecastWord"><%= day3 %></p></div>
+                <div class="col dayForcast"><img src="<%= iconDay4 %>" alt="forecast"><br><p class="forecastWord"><%= day4 %></p></div>
+                <div class="col dayForcast"><img src="<%= iconDay5 %>" alt="forecast"><br><p class="forecastWord"><%= day5 %></p></div>
+                <div class="col dayForcast"><img src="<%= iconDay6 %>" alt="forecast"><br><p class="forecastWord"><%= day6 %></p></div>
+            </div>
+        </div>
+        </div>
+        <% } %>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
